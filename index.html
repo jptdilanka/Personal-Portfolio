@@ -13,18 +13,18 @@
         <nav>
             <img src="Images/logo.png" class="logo">
             <ul id="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Aspiring Frontend Developer</p>
-            <h1>Hi, I'm <span>Thanuji Dilanka</span><br>a software engineering student.</h1>
+            <h1>Hi, I'm <span>Thanuji Dilanka</span><br>a software engineering<br>student.</h1>
         </div>
     </div>
 </div>
@@ -71,20 +71,34 @@
             <div>
                 <i class="fa-solid fa-code"></i>
                 <h2>Technical Skills</h2>
-                <p>Passionate about web development, I am preparing to specialize in frontend development to create intuitive and engaging user experiences. 
-                    My goal is to become a skilled developer capable of building responsive and accessible web applications that make a difference.</p>
+                <p class="skill-icons">
+                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <i class="fa-brands fa-js"></i>
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-git-alt"></i>
+                </p> 
             </div>
             <div>
                 <i class="fa-regular fa-lightbulb"></i>
                 <h2>Soft Skills</h2>
-                <p>Passionate about web development, I am preparing to specialize in frontend development to create intuitive and engaging user experiences. 
-                    My goal is to become a skilled developer capable of building responsive and accessible web applications that make a difference.</p>
+                <ul>
+                    <li>Collaborating effectively in group projects.</li>
+                    <li>Debugging and optimizing code to improve user experience.</li>
+                    <li>Clearly explaining ideas and solutions to peers or non-technical people.</li>
+                    <li>Designing visually appealing and user-friendly interfaces.</li>
+                    <li>Meeting deadlines for projects and assignments.</li>
+                </ul>
             </div>
             <div>
                 <i class="fa-solid fa-toolbox"></i>
                 <h2>Tools</h2>
-                <p>Passionate about web development, I am preparing to specialize in frontend development to create intuitive and engaging user experiences. 
-                    My goal is to become a skilled developer capable of building responsive and accessible web applications that make a difference.</p>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>Visual Studio</li>
+                    <li>Figma</li>
+                    <li>GitHub</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -143,17 +157,18 @@
                 <a href="Images/resume.pdf" download class="btn btn2">Download My Resume</a>
             </div>
             <div class="contact-right">
-                <form action="">
+                <form action="" name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
     <div class="copyright">
-        <p>Copyright © Thanuji Dilanka <i class="fa-solid fa-heart"></i></p>
+        <p>Copyright © Thanuji Dilanka <i class="fa-solid fa-heart"></i> 2024</p>
     </div>
 </div>
 
@@ -180,6 +195,24 @@
     function closemenu(){
         sidemenu.style.right="-200px";
     }
-</script>  
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyj36AunfST09wD72alZppVNtJiDJ3Xt08NQ_U2phFr-6VGIjCtg82SLWetMHRvKU00/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!" 
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },2000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script> 
 </body>
 </html>

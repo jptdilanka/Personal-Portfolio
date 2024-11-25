@@ -4,6 +4,9 @@
     font-family: 'poppins', sans-serif;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: #080808;
     color: #fff;
@@ -155,8 +158,17 @@ nav ul li a:hover::after{
     margin-bottom: 15px;
 }
 .skills-list div:hover{
-    background: #00bf63;
+    background: #347b39;
     transform: translateY(-10px);
+}
+.skill-icons i{
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 12px;
+    margin-top: 30px;
+    color: #fff;
+    display: inline-block;
+    transition: transform 0.5s;
 }
 /*-----------------Projects-----------------*/
 #portfolio{
@@ -172,6 +184,7 @@ nav ul li a:hover::after{
     border-radius: 10px;
     position: relative;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 .project img{
     width: 100%;
@@ -281,7 +294,7 @@ form input, form textarea{
     background: #262626;
     padding: 15px;
     margin: 15px 0;
-    color: #000;
+    color: #fff;
     font-size: 18px;
     border-radius: 6px;
 }
@@ -367,4 +380,9 @@ nav .fa-solid{
     .copyright{
         font-size: 14px;
     }
+}
+#msg{
+    color: #61b752;
+    margin-top: -40px;
+    display: block;
 }
