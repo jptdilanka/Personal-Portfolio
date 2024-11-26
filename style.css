@@ -91,6 +91,10 @@ nav ul li a:hover::after{
     font-weight: 600;
     color: #fff;
 }
+.about-col-2 p{
+    font-size: 18px;
+    line-height: 30px;
+}
 .tab-titles{
     display:flex;
     margin: 20px 0 40px;
@@ -143,7 +147,8 @@ nav ul li a:hover::after{
 .skills-list div{
     background: #262626;
     padding: 40px;
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 25px;
     font-weight: 300;
     border-radius: 10px;
     transition: transform 0.5s;
@@ -185,6 +190,7 @@ nav ul li a:hover::after{
     position: relative;
     overflow-y: hidden;
     overflow-x: hidden;
+    
 }
 .project img{
     width: 100%;
@@ -247,6 +253,10 @@ nav ul li a:hover::after{
 .btn:hover{
     background: #00bf63;
 }
+.hidden {
+    display: none;
+}
+
 /*-----------------Contact-----------------*/
 .contact-left{
     flex-basis: 35%;

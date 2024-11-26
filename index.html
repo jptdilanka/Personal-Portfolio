@@ -135,8 +135,26 @@
                     <a href="https://github.com/jptdilanka/Commercial-Bank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
+            <div class="project hidden">
+                <img src="Images/work-1.png" alt="">
+                <div class="layer">
+                    <h3>Project 4</h3>
+                    <p>Project description for Project 4 goes here.</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="project hidden">
+                <img src="Images/work-2.png" alt="">
+                <div class="layer">
+                    <h3>Project 5</h3>
+                    <p>Project description for Project 5 goes here.</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
         </div>
-        <a href="#" class="btn">See more</a>
+        <a href="#" class="btn" id="toggle-projects">See more</a>
+
+
     </div>
 </div>
 <!---------------Contact--------------->
@@ -196,6 +214,34 @@
         sidemenu.style.right="-200px";
     }
 </script>
+<script>
+    const toggleButton = document.getElementById('toggle-projects');
+    const hiddenProjects = document.querySelectorAll('.project.hidden');
+
+    toggleButton.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Check if projects are currently hidden
+        const areProjectsHidden = Array.from(hiddenProjects).some((project) =>
+            project.classList.contains('hidden')
+        );
+
+        if (areProjectsHidden) {
+            // Reveal hidden projects
+            hiddenProjects.forEach((project) => {
+                project.classList.remove('hidden');
+            });
+            toggleButton.textContent = 'See less'; // Change button text to "See Less"
+        } else {
+            // Hide projects again
+            hiddenProjects.forEach((project) => {
+                project.classList.add('hidden');
+            });
+            toggleButton.textContent = 'See more'; // Change button text back to "See More"
+        }
+    });
+</script>
+
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyj36AunfST09wD72alZppVNtJiDJ3Xt08NQ_U2phFr-6VGIjCtg82SLWetMHRvKU00/exec'
     const form = document.forms['submit-to-google-sheet']
