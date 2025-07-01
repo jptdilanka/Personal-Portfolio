@@ -256,6 +256,9 @@ nav ul li a:hover::after{
 .hidden {
     display: none;
 }
+.layer h5{
+    color: #fff;
+}
 
 /*-----------------Contact-----------------*/
 .contact-left{
